@@ -4,4 +4,4 @@ const compose =
 		return func.reduceRight((wrapped, f) => f(wrapped), comp);
 	};
 
-export default compose;
+export default compose
