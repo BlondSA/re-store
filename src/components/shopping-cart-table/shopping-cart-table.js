@@ -68,9 +68,10 @@ const ShoppingCartTable = (props) => {
 	);
 };
 const mapStateToProps = (state) => {
+	const { shoppingCart } = state;
 	return {
-		items: state.cartItems,
-		orderPrice: state.orderTotal,
+		items: shoppingCart.cartItems,
+		orderPrice: shoppingCart.orderTotal,
 	};
 };
 

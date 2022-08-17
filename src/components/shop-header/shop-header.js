@@ -18,9 +18,12 @@ const ShopHeader = (props) => {
 	);
 };
 
-const mapStateToProps = (state) => ({
-	numItems: state.cartItems.length,
-	totalPrice: state.orderTotal,
-});
+const mapStateToProps = (state) => {
+	const { shoppingCart } = state;
+	return {
+		numItems: shoppingCart.cartItems.length,
+		totalPrice: shoppingCart.orderTotal,
+	};
+};
 
 export default connect(mapStateToProps)(ShopHeader);
