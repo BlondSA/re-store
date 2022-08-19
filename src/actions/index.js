@@ -22,7 +22,19 @@ const bookRemoveFromCart = (bookId) => {
 	return { type: "BOOK_REMOVE_FROM_CART", payload: bookId };
 };
 
-const fetchBooks = (bookStoreService, dispatch) => () => {
+const fetchBooksOld = (bookStoreService, dispatch) => () => {
+	dispatch(booksRequested());
+	bookStoreService
+		.getBooks()
+		.then((data) => {
+			dispatch(booksLoaded(data));
+		})
+		.catch((error) => {
+			dispatch(booksError(error));
+		});
+};
+
+const fetchBooks = (bookStoreService) => () => (dispatch) => {
 	dispatch(booksRequested());
 	bookStoreService
 		.getBooks()
